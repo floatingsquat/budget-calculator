@@ -1,23 +1,37 @@
-import logo from './logo.svg';
 import './App.css';
+import BudgetForm from './components/BudgetForm';
+import BudgetList from './components/BudgetList';
+import {useContext} from 'react'
+import BudgetContext from './context/BudgetContext';
+import Alert from './components/Alert';
+import plogo from './assets/pr-logo.png'
+
 
 function App() {
+
+  const {alert, calculateTotal} = useContext(BudgetContext)
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="container">
+     {alert.show && <Alert type={alert.type} text={alert.text} />}
+     <div className="card">
+     <div>
+      
+      </div>
+    <div className="card-top">
+    <img src={plogo} alt="logo" width="60px"/>
+    <h2> Budget Calculator</h2>
+    </div>
+   
+      <BudgetForm />
+      <BudgetList />
+
+      <div className="total">
+      <h5>Total Spending:</h5>
+      <span>${calculateTotal()}</span>
+
+      </div>
+     </div>
     </div>
   );
 }
