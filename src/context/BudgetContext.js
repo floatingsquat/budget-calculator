@@ -76,23 +76,16 @@ export const BudgetProvider = ({ children }) => {
       item: theBudget,
       edit: true,
     });
-
-    //return theBudget
-    //updateBudget(id)
   };
 
   const updateBudget = (id, updItem) => {
     setBudget(
       budget.map((item) => (item.id === id ? { ...item, ...updItem } : item))
     );
-
-    // setFeedback(feedback.map((item) => (item.id === id ? data : item)))
     setEditMode({
       item: {},
       edit: false,
     });
-
-    //return theBudget
   };
 
   const calculateTotal = () => {

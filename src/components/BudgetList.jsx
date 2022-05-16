@@ -8,17 +8,19 @@ function BudgetList() {
 
   return (
     <div className="list">
-      {budget.length > 0 &&
-        budget.map((item, key) => <BudgetItem key={key} item={item} />)}
-
       {budget.length > 0 && (
-        <button
-          className={!budget ? "btn-hidden" : "btn-primary"}
-          onClick={removeAll}
-        >
-          <FaBullseye />
-          <span>Remove All</span>
-        </button>
+        <>
+          {budget.map((item, key) => (
+            <BudgetItem key={key} item={item} />
+          ))}
+          <button
+            className={!budget ? "btn-hidden" : "btn-primary"}
+            onClick={removeAll}
+          >
+            <FaBullseye />
+            <span>Remove All</span>
+          </button>
+        </>
       )}
     </div>
   );

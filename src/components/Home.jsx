@@ -16,10 +16,8 @@ function Home() {
           <img src={plogo} alt="logo" width="60px" />
           <h2> Budget Calculator</h2>
         </div>
-
         <BudgetForm />
         <BudgetList />
-
         <div className="total">
           <h5>Total Spending:</h5>
           <span>${calculateTotal()}</span>

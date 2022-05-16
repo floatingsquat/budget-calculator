@@ -16,8 +16,6 @@ function BudgetForm() {
     setBtnEnabled,
   } = useContext(BudgetContext);
 
-  //const btnEnabled =
-
   useEffect(() => {
     if (editMode.edit) {
       setCharge(editMode.item.charge);
@@ -26,7 +24,8 @@ function BudgetForm() {
     }
   }, [editMode]);
 
-  const onSave = () => {
+  const onSave = (e) => {
+    e.preventDefault();
     if (charge && amount) {
       if (editMode.edit === false) {
         saveBudget(charge, amount);
