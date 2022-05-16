@@ -21,7 +21,6 @@ export const BudgetProvider = ({ children }) => {
     },
   ]);
 
-  //const [total] = useState(0);
   const [editMode, setEditMode] = useState({
     item: {},
     edit: false,
@@ -30,12 +29,13 @@ export const BudgetProvider = ({ children }) => {
   const removeAll = () => {
     if (window.confirm("All items are going to be deleted, sure about this?")) {
       setBudget([]);
-      setCharge("");
-      setAmount("");
+
       setEditMode({
         items: {},
         edit: false,
       });
+      setCharge("");
+      setAmount("");
       setBtnEnabled(false);
       handleAlert("success", "All items are deleted");
     }
